@@ -31,6 +31,7 @@ type Translations = {
       quickLinks: string;
       privacy: string;
       rights: string;
+      credits: string;
     };
     common: {
       loading: string;
@@ -110,7 +111,8 @@ const translations: Translations = {
       contact: "Contact",
       quickLinks: "Quick Links",
       privacy: "Privacy Policy",
-      rights: "© 2023 Arthur's Tire Shop. All rights reserved.",
+      rights: "© 2026 Arthur's Tire Shop. All rights reserved.",
+      credits: "Created by",
     },
     common: { loading: "Loading..." },
     services: {
@@ -219,7 +221,8 @@ const translations: Translations = {
       contact: "Contacto",
       quickLinks: "Enlaces Rápidos",
       privacy: "Política de Privacidad",
-      rights: "© 2023 Arthur's Tire Shop. Todos los derechos reservados.",
+      rights: "© 2026 Arthur's Tire Shop. Todos los derechos reservados.",
+      credits: "Creado por",
     },
     common: { loading: "Cargando..." },
     services: {

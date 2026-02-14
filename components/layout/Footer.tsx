@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-black text-white py-12 border-t border-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,16 +21,12 @@ export default function Footer() {
                 className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
               />
             </div>
-            <p className="text-gray-500 text-sm max-w-sm">
-              Cedar Creek's premier destination for tires, wheels, and
-              automotive care. We pride ourselves on honest work and competitive
-              pricing.
-            </p>
+            <p className="text-gray-500 text-sm max-w-sm">{t.footer?.desc}</p>
           </div>
 
           <div>
             <h5 className="text-primary font-bold uppercase text-xs tracking-widest mb-4">
-              Contact
+              {t.footer?.contact}
             </h5>
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="flex items-center gap-2">
@@ -49,7 +50,7 @@ export default function Footer() {
 
           <div>
             <h5 className="text-primary font-bold uppercase text-xs tracking-widest mb-4">
-              Quick Links
+              {t.footer?.quickLinks}
             </h5>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
@@ -57,15 +58,7 @@ export default function Footer() {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#about"
-                  className="hover:text-white transition-colors"
-                >
-                  About Us
+                  {t.header?.services}
                 </Link>
               </li>
               <li>
@@ -73,12 +66,15 @@ export default function Footer() {
                   href="#location"
                   className="hover:text-white transition-colors"
                 >
-                  Get Quote
+                  {t.hero?.getQuote}
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Privacy Policy
+                <Link
+                  href="/privacy"
+                  className="hover:text-white transition-colors"
+                >
+                  {t.footer?.privacy}
                 </Link>
               </li>
             </ul>
@@ -86,7 +82,23 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
-          <p>© 2023 Arthur's Tire Shop. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row gap-1 items-center">
+            <p>{t.footer?.rights}</p>
+            <span className="hidden md:block mx-2">|</span>
+            <p>
+              {t.footer?.credits}{" "}
+              <a
+                href="https://ruedalarolamedia.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-white transition-colors underline"
+              >
+                Rueda la Rola Media
+              </a>
+            </p>
+          </div>
+
+          {/* Social Media Links - Hidden until URLs provided
           <div className="flex gap-4 mt-4 md:mt-0">
             <span className="hover:text-white cursor-pointer transition-colors">
               Facebook
@@ -98,6 +110,7 @@ export default function Footer() {
               Yelp
             </span>
           </div>
+          */}
         </div>
       </div>
     </footer>

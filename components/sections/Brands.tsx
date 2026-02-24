@@ -2,6 +2,57 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 
+const brands = [
+  "Michelin",
+  "Bridgestone",
+  "Goodyear",
+  "Continental",
+  "Pirelli",
+  "Dunlop",
+  "Yokohama",
+  "Atlas Tires",
+  "Atlander",
+  "Delinte",
+  "Premiorri",
+  "Fuzion",
+  "Toyo Tires",
+  "Mickey Thompson",
+  "Starfire Tires",
+  "Vantage",
+  "Firestone",
+  "Kelly Tires",
+  "Achilles",
+  "Cooper Tires",
+  "Roadmaster Tires",
+  "Omni Trail",
+  "General Tire",
+  "Falken",
+  "Hankook",
+  "Kumho Tire",
+  "Nexen",
+  "Mastercraft Tires",
+  "Double Coin",
+  "Supercargo",
+  "Thunderer",
+  "Trelleborg",
+  "Carlisle",
+  "BKT",
+  "Mitas",
+  "Titan",
+  "Goodyear Farm Tires",
+  "Ironhead",
+];
+
+const styles = [
+  "italic tracking-tighter",
+  "tracking-wider",
+  "font-serif",
+  "tracking-tighter",
+  "italic",
+  "font-mono",
+  "tracking-widest",
+];
+
 export default function Brands() {
   const { t } = useLanguage();
 
@@ -15,30 +66,17 @@ export default function Brands() {
           {t.brandSection.title}
         </h4>
       </div>
-      {/* Scrolling Marquee effect container */}
+      {/* Brands container */}
       <div className="relative w-full overflow-hidden">
-        <div className="flex gap-12 items-center justify-center flex-wrap opacity-70 hover:opacity-100 transition-opacity duration-300">
-          <div className="text-2xl font-black text-gray-500 hover:text-white uppercase italic tracking-tighter">
-            Michelin
-          </div>
-          <div className="text-2xl font-black text-gray-500 hover:text-white uppercase tracking-wider">
-            Bridgestone
-          </div>
-          <div className="text-2xl font-black text-gray-500 hover:text-white uppercase font-serif">
-            Goodyear
-          </div>
-          <div className="text-2xl font-black text-gray-500 hover:text-white uppercase tracking-tighter">
-            Continental
-          </div>
-          <div className="text-2xl font-black text-gray-500 hover:text-white uppercase italic">
-            Pirelli
-          </div>
-          <div className="text-2xl font-black text-gray-500 hover:text-white uppercase font-mono">
-            Dunlop
-          </div>
-          <div className="text-2xl font-black text-gray-500 hover:text-white uppercase tracking-widest">
-            Yokohama
-          </div>
+        <div className="flex gap-8 md:gap-12 items-center justify-center flex-wrap opacity-70 hover:opacity-100 transition-opacity duration-300">
+          {brands.map((brand, i) => (
+            <div
+              key={brand}
+              className={`text-xl md:text-2xl font-black text-gray-500 hover:text-white uppercase ${styles[i % styles.length]}`}
+            >
+              {brand}
+            </div>
+          ))}
         </div>
       </div>
     </section>

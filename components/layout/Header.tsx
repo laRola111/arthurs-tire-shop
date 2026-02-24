@@ -20,7 +20,7 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex-shrink-0 flex items-center gap-2 cursor-pointer group"
+            className="shrink-0 flex items-center gap-2 cursor-pointer group"
           >
             <Image
               src="/logo_arthurs_para_blanco.png"
@@ -99,13 +99,16 @@ export default function Header() {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className="px-2 py-1 rounded border border-gray-300 text-xs font-bold bg-gray-50 text-gray-700"
+              className="px-2 py-1 rounded border border-gray-300 text-xs font-bold bg-gray-50 text-gray-700 focus-visible:ring-2 focus-visible:ring-primary focus:outline-none"
+              aria-label={`Switch to ${language === "EN" ? "Spanish" : "English"}`}
             >
               {language}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none"
+              className="text-gray-700 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded p-1"
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               <span className="material-icons text-3xl">
                 {isMenuOpen ? "close" : "menu"}
